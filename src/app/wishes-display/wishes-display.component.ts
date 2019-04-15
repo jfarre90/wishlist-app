@@ -16,7 +16,7 @@ export class WishesDisplayComponent implements OnInit {
   @Input () categories: Category[];
   @Output () categoriesChange = new EventEmitter<Category[]>();
   
-  constructor(private wishesService: WishesService) { }
+  constructor(public wishesService: WishesService) { }
 
   ngOnInit() {
   }

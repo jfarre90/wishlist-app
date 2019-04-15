@@ -18,6 +18,8 @@ export class WishInputComponent implements OnInit {
     category: ['', Validators.required],
   });  
   
+  panelOpenState: boolean;
+  
   constructor(private wishesService: WishesService, private fb: FormBuilder) { }
 
   ngOnInit() {

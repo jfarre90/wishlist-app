@@ -1,33 +1,21 @@
-# Comments
-I have used MongoDB to ensure we keep data persistence when the user logged out.
+# COMMENTS
+This App is using a REST API that I have built using MongoDB for the database. 
 
-Since the requirement specified to allow the user to make changes without logging in, I haven't added any user functionality, but this is something I can do if required.
+This API is currently hosted in a Heroku free tier, which goes to sleep after 1 hour, 
+so if it does not work at first please try again as the server might have been waking up.
 
+The App currently offers this features:
+    - Navbar using angular router to direct to different pages (I have just added the about page to show I know how to use the router)
+    - Expansion panel for the input of new wishes, that changes message when expanded (when collapsed, it says to press to open, when expanded it changes the message to press to close)
+    - On page load, the App accesses the API using Angular HTTP Client and retrieves the saved wishes, classifying them by categories in individual cards
+    - If a new wish is added with a new category, another category card will be automatically created.
+    - user can Add wishes, delete wishes or delete a complete category with the respective buttons/icons.
+    - App offers Drag and Drop feature between the different categories. The item can still be deleted once it has been moved to another category. However, the drag drop from one category to another is not currently saved to the database.
+    - App is fully responsive and will adapt to different window sizes effectively.
+    - Styled using Angular Material.
+    
+I hope you are happy with this App. If there is anything that you would have liked to be done differntly, I would 
+appreciate some feedback so that I can improve my coding in the future.
 
-# JavierWishList
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Thanks,
+Javier Farre.

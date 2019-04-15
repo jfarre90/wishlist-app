@@ -11,7 +11,7 @@ import { Wish } from './wish';
 })
 export class WishesComponent implements OnInit {
   
-  constructor(private wishesService: WishesService) { }
+  constructor(public wishesService: WishesService) { }
   
   
   //Initializing
