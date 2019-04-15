@@ -1,6 +1,6 @@
 <mat-card >
   <mat-card-content class="wish-card" fxLayout='row' fxLayoutGap='5px' fxLayoutAlign='center center' >
-    <p> {{ wish.text }} </p>
+    <p class='wish-text'> {{ wish.text }} </p>
     <button mat-icon-button color="warn" title="delete wish" (click)="deleteWish(wish)">
       <mat-icon aria-label="Delete wish button">delete_forever</mat-icon>
     </button>
