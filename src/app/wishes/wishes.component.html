@@ -1,0 +1,10 @@
+<app-wish-input></app-wish-input>
+<div *ngIf='wishesService.categories'>
+  <app-wishes-display
+    fxLayout='row' 
+    fxLayoutGap='15px' 
+    fxLayoutAlign='center start' 
+    class='display-area'
+    cdkDropListGroup>
+  </app-wishes-display>
+</div>

@@ -1,0 +1,30 @@
+<form [formGroup]='wishForm' (ngSubmit)='onSubmit()' class='inputForm'>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header fxLayout='column' fxLayoutAlign='center center'>
+      <mat-panel-title fxLayout='row' fxLayoutAlign='center center'>
+        Add a Wish! <mat-icon>star_border</mat-icon>
+      </mat-panel-title>
+      <mat-panel-description>
+        Press here {{panelOpenState ? 'to close the wish input' :  'to add a wish to the list'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+    <div fxLayout='row' fxLayoutGap='80px' fxLayoutAlign='center start' class='input-container'>
+      <mat-form-field>
+        <input matInput placeholder="Your Wish" formControlName="text">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Category" formControlName="category">
+      </mat-form-field>
+    </div>
+    
+    
+    <mat-action-row>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!wishForm.valid">Add Wish</button>
+    </mat-action-row>
+    
+  </mat-expansion-panel>
+</form>
+
+
