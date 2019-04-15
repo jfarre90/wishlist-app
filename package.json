@@ -7,14 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
-  "engines": {
-    "node": "11.14.0",
-    "npm": "3.10.10"
-  },
   "dependencies": {
     "@angular/animations": "^7.2.12",
     "@angular/cdk": "^7.3.7",
