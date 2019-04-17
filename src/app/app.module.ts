@@ -37,6 +37,8 @@ import { WishInputComponent } from './wish-input/wish-input.component';
 import { WishesDisplayComponent } from './wishes-display/wishes-display.component';
 import { WishesCategoryComponent } from './wishes-category/wishes-category.component';
 import { WishComponent } from './wish/wish.component';
+import { WishDirective } from './wish/wish.directive';
+import { WishCategoryDirective } from './wishes-category/wish-category.directive';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { WishComponent } from './wish/wish.component';
     WishInputComponent,
     WishesDisplayComponent,
     WishesCategoryComponent,
-    WishComponent
+    WishComponent,
+    WishDirective,
+    WishCategoryDirective
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,7 @@ import { WishComponent } from './wish/wish.component';
     MatListModule
   ],
   providers: [WishesService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [WishComponent, WishesCategoryComponent]
 })
 export class AppModule { }

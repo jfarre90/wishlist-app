@@ -1,6 +1,9 @@
-.wish-card {
+.mat-card {
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 9;
 }
 
 .wish-text{

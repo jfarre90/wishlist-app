@@ -14,16 +14,8 @@ export class WishesComponent implements OnInit {
   constructor(public wishesService: WishesService) { }
   
   
-  //Initializing
+  
   ngOnInit() {
     
   }
-  
-  
-  getWishes(){
-    this.wishesService.getWishes().subscribe(wishes => {
-      this.wishesService.wishes = wishes
-      this.wishesService.categories = this.wishesService.getCategories(this.wishesService.wishes);
-      });
-  };
 }

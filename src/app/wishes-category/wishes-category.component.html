@@ -12,7 +12,7 @@
     cdkDropList
     [cdkDropListData]='category.wishes'
     (cdkDropListDropped)="drop($event)">
-      
+    
     <app-wish 
       [wish]='wish' 
       [category]='category'
@@ -20,6 +20,13 @@
       class='wish-item'
       cdkDrag>
     </app-wish>
+    
+    <!--<ng-template -->
+    <!--  appWish-->
+    <!--  *ngFor= 'let wish of category.wishes'>-->
+    <!--</ng-template>-->
+    
+   
 
     
   </mat-card-content> 

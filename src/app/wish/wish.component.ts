@@ -20,12 +20,20 @@ export class WishComponent implements OnInit {
   ngOnInit() {
   }
   
-  deleteWish(wish: Wish): void {
+  deleteWish(wishToDelete: Wish): void {
     
-    this.category.wishes = this.category.wishes.filter(dWish => dWish !== wish);
-    this.wishesService.wishes = this.wishesService.wishes.filter(dWish => dWish !== wish);
-
-    this.wishesService.deleteWish(wish).subscribe(); 
+    //update categories array
+    this.wishesService.categories.forEach( category => {
+      if(category.wishes.includes(wishToDelete)) {
+        category.wishes = category.wishes.filter(wish => wish !== wishToDelete);
+      }
+    });
+    
+    //update wishes array
+    this.wishesService.wishes = this.wishesService.wishes.filter(wish => wish !== wishToDelete);
+    
+    //update database
+    this.wishesService.deleteWish(wishToDelete).subscribe();
   }
 
 }

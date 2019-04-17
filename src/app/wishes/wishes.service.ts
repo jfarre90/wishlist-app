@@ -29,7 +29,7 @@ export class WishesService {
 
   constructor(private http: HttpClient) { 
     this.getWishes().subscribe(wishes => {
-      this.wishes = wishes;
+      this.wishes = wishes.sort((a, b) => a.category.localeCompare(b.category));
       this.categories = this.getCategories(this.wishes);
       });
   }
@@ -71,9 +71,8 @@ export class WishesService {
   
   deleteCategory(category: string) {
     const url = `${this.wishesURL}/categories/${category}`;
-    console.log(url)
     return this.http.delete<Wish>(url).pipe(
-      tap(_ => this.log(`deleted all category=${category}`)),
+      tap(_ => this.log(`deleted all wishes from category=${category}`)),
       catchError(this.handleError<Wish>('deleteWish'))
     );
   }
