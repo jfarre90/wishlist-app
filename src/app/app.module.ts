@@ -6,14 +6,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { WishesService } from './wishes/wishes.service';
 
 
-//Material imports
+// Material imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
-import { 
-  MatButtonModule, 
-  MatCheckboxModule, 
-  MatMenuModule, 
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatMenuModule,
   MatFormFieldModule,
   MatExpansionModule,
   MatAutocompleteModule,
@@ -24,7 +24,7 @@ import {
   MatListModule
 } from '@angular/material';
 
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
@@ -32,12 +32,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AboutComponent } from './about/about.component';
+import { WishComponent } from './wish/wish.component';
 import { WishesComponent } from './wishes/wishes.component';
 import { WishInputComponent } from './wish-input/wish-input.component';
 import { WishesDisplayComponent } from './wishes-display/wishes-display.component';
 import { WishesCategoryComponent } from './wishes-category/wishes-category.component';
-import { WishComponent } from './wish/wish.component';
-import { WishDirective } from './wish/wish.directive';
 import { WishCategoryDirective } from './wishes-category/wish-category.directive';
 
 @NgModule({
@@ -50,7 +49,6 @@ import { WishCategoryDirective } from './wishes-category/wish-category.directive
     WishesDisplayComponent,
     WishesCategoryComponent,
     WishComponent,
-    WishDirective,
     WishCategoryDirective
   ],
   imports: [
@@ -75,6 +73,6 @@ import { WishCategoryDirective } from './wishes-category/wish-category.directive
   ],
   providers: [WishesService],
   bootstrap: [AppComponent],
-  entryComponents: [WishComponent, WishesCategoryComponent]
+  entryComponents: [WishesCategoryComponent]
 })
 export class AppModule { }

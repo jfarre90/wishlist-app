@@ -1,12 +1,17 @@
 
-<button mat-raised-button color="primary" (click)="showAllCategories()"> ALL </button>
+<button mat-raised-button color='primary' (click)="showAllCategories()"> ALL </button>
 
 
-<button mat-raised-button color="primary" *ngFor='let category of wishesService.categories' (click)="filterCategory(category)">
-  {{ category.title }}
+<button 
+  mat-raised-button 
+  color='primary' 
+  *ngFor='let category of wishesService.categories' 
+  (click)="filterCategory(category)">
+  
+    {{ category.title }}
+    
 </button>
 
 <ng-template 
   appWishCategory
-  *ngFor='let category of wishesService.categories'>
-</ng-template>
+  *ngFor='let category of wishesService.categories'></ng-template>

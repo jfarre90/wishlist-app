@@ -16,15 +16,15 @@ export class WishInputComponent implements OnInit {
   wishForm = this.fb.group({
     text: ['', Validators.required],
     category: ['', Validators.required],
-  });  
-  
+  });
+
   panelOpenState: boolean;
-  
+
   constructor(private wishesService: WishesService, private fb: FormBuilder) { }
 
   ngOnInit() {
   }
-  
+
   onSubmit() {
     if (this.wishForm.invalid) {
       return;
@@ -32,17 +32,13 @@ export class WishInputComponent implements OnInit {
     this.addWish(this.wishForm.value);
     this.wishForm.reset();
   }
-  
+
   addWish(wishArr) {
-    
-    if(!wishArr){return;}
-   
+    if (!wishArr) {return; }
     this.wishesService.addWish(wishArr).subscribe(newWish => {
-      
       this.wishesService.wishes.push(newWish);
-      
       this.wishesService.categories = this.wishesService.getCategories(this.wishesService.wishes);
     });
-  };
+  }
 
 }

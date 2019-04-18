@@ -1,18 +1,18 @@
-import { 
-  Component, 
+import {
+  Component,
   OnInit,
   AfterViewInit,
   OnDestroy,
-  Input, 
-  EventEmitter, 
+  Input,
+  EventEmitter,
   Output,
   ViewChild,
   ViewChildren,
-  ViewContainerRef, 
-  ComponentFactoryResolver, 
-  ComponentRef, 
+  ViewContainerRef,
+  ComponentFactoryResolver,
+  ComponentRef,
   ComponentFactory
-  
+
 } from '@angular/core';
 import { WishesService } from '../wishes/wishes.service';
 
@@ -30,74 +30,69 @@ import { Category } from '../wishes-category/category';
 
 
 
-export class WishesDisplayComponent implements OnInit, OnDestroy, AfterViewInit{
-  
-  // @Input () wishes: Wish[];
-  // @Output () wishesChange = new EventEmitter<Wish[]>();
-    
-  // @Input () categories: Category[];
-  // @Output () categoriesChange = new EventEmitter<Category[]>();
-  
+export class WishesDisplayComponent implements OnInit, OnDestroy, AfterViewInit {
+
    @ViewChildren(WishCategoryDirective) categoryHosts;
-  
+   
+
   constructor(public wishesService: WishesService, private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
   }
-  
+
   ngAfterViewInit() {
     this.createCategories();
   }
-  
+
   ngOnDestroy() {
     this.clearView();
   }
-  
-  
-  createCategories(){
-    let categoryHostsArray = this.categoryHosts.toArray();
 
+
+  createCategories() {
     
-    categoryHostsArray.forEach((categoryHost,i) => {
-      let componentFactory = this.componentFactoryResolver.resolveComponentFactory(WishesCategoryComponent);
-      let viewContainerRef = categoryHost.viewContainerRef;
-      viewContainerRef.clear();
-      
-      let componentRef = viewContainerRef.createComponent(componentFactory);
-      componentRef.instance.category = this.wishesService.categories[i]; 
+    this.clearView();
+    
+    const categoryHostsArray = this.categoryHosts.toArray();
+
+    categoryHostsArray.forEach((categoryHost, i) => {
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(WishesCategoryComponent);
+      const viewContainerRef = categoryHost.viewContainerRef;
+
+      const componentRef = viewContainerRef.createComponent(componentFactory);
+      componentRef.instance.category = this.wishesService.categories[i];
       componentRef.changeDetectorRef.detectChanges();
     });
   }
   
-  clearView(){
-    let categoryHostsArray = this.categoryHosts.toArray();
-    categoryHostsArray.forEach((categoryHost,i) => {
-      let viewContainerRef = categoryHost.viewContainerRef;
+  clearView() {
+    const categoryHostsArray = this.categoryHosts.toArray();
+    
+    categoryHostsArray.forEach((categoryHost, i) => {
+      const viewContainerRef = categoryHost.viewContainerRef;
       viewContainerRef.clear();
     });
   }
   
-  filterCategory(filterCategory: Category){
-    console.log(`filter the display to only show ${filterCategory.title}`)
+  filterCategory(filterCategory: Category) {
     this.clearView();
-    let categoryHostsArray = this.categoryHosts.toArray();
-    this.wishesService.categories.forEach(category => {
-      if(category === filterCategory){
-        let componentFactory = this.componentFactoryResolver.resolveComponentFactory(WishesCategoryComponent);
-        let viewContainerRef = categoryHostsArray[0].viewContainerRef;
+    const categoryHostsArray = this.categoryHosts.toArray();
+    this.wishesService.categories.forEach((category, i) => {
+      if (category === filterCategory) {
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(WishesCategoryComponent);
+        const viewContainerRef = categoryHostsArray[i].viewContainerRef;
         viewContainerRef.clear();
         
-        let componentRef = viewContainerRef.createComponent(componentFactory);
+        const componentRef = viewContainerRef.createComponent(componentFactory);
         
-        componentRef.instance.category = category; 
+        componentRef.instance.category = category;
         componentRef.changeDetectorRef.detectChanges();
       }
     });
     
   }
   
-  showAllCategories(){
-    console.log(`remove filters and show all categories`);
+  showAllCategories() {
     this.createCategories();
   }
 
